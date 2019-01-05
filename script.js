@@ -181,6 +181,15 @@ function diagonalWin() {
 }
 
 
+function isDraw() {
+    if ($.inArray(0, board[0]) > 0 && $.inArray(0, board[1]) > 0 && $.inArray(0, board[2]) > 0 && $.inArray(0, board[3]) > 0 && $.inArray(0, board[4]) > 0 && $.inArray(0, board[5]) > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 function dropToBottom(x_pos, y_pos) {
     var x_temp = x_pos;
     for (var x = x_pos+1; x < 6; x++) {
@@ -228,15 +237,20 @@ function gamePlay() {
                     var playerOneScore =  parseInt($('.player-one-score').html()) + 1;
                     $('.player-one-score').html(playerOneScore);
                 }
-                console.log($('.winner-message').html());
                 $('#game-board button').unbind('click');
                 $('.play-again').css('display', 'block');
                 return;  
             }
+            
+            if (isDraw()) {
+                $('#game-board button').unbind('click');
+                $('.play-again').css('display', 'block');
+                return;
+            }
 
             switchPlayer();  
         }
-        });
+    });
 }
 
 
