@@ -182,7 +182,7 @@ function diagonalWin() {
 
 
 function isDraw() {
-    if ($.inArray(0, board[0]) > 0 && $.inArray(0, board[1]) > 0 && $.inArray(0, board[2]) > 0 && $.inArray(0, board[3]) > 0 && $.inArray(0, board[4]) > 0 && $.inArray(0, board[5]) > 0) {
+    if ($.inArray(0, board[0]) < 0 && $.inArray(0, board[1]) < 0 && $.inArray(0, board[2]) < 0 && $.inArray(0, board[3]) < 0 && $.inArray(0, board[4]) < 0 && $.inArray(0, board[5]) < 0) {
         return true;
     } else {
         return false;
